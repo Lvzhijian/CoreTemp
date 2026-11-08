@@ -18,6 +18,8 @@ struct PopoverView: View {
                     .padding(.top, 8)
                 diskStats
                     .padding(.top, 8)
+                batteryStats
+                    .padding(.top, 8)
                 if let usage = monitor.snapshot.cpu.usage {
                     usageBar(usage)
                         .padding(.top, 12)
@@ -294,6 +296,158 @@ struct PopoverView: View {
             return "采样中"
         }
         return "已用 \(DiskReport.formatBytes(used)) · \(String(format: "%.0f%%", percent))"
+    }
+
+    private var batteryStats: some View {
+        HStack(spacing: 8) {
+            StatCard(
+                symbol: batterySymbol,
+                label: "电量",
+                value: batteryPercentValue,
+                valueColor: batteryPercentColor,
+                footnote: batteryPercentFootnote
+            )
+            StatCard(
+                symbol: batteryModeSymbol,
+                label: "电源",
+                value: batteryModeValue,
+                valueColor: batteryModeColor,
+                footnote: batteryModeFootnote
+            )
+        }
+    }
+
+    private var batteryPercentValue: String {
+        if monitor.snapshot.isLoading {
+            return "…"
+        }
+        if monitor.snapshot.battery.failed {
+            return "—"
+        }
+        guard let percent = monitor.snapshot.battery.percent else {
+            return monitor.snapshot.battery.present ? "…" : "—"
+        }
+        return String(format: "%.0f%%", percent)
+    }
+
+    private var batteryPercentColor: Color {
+        guard let percent = monitor.snapshot.battery.percent else {
+            return .primary
+        }
+        if percent <= 15 {
+            return Color(red: 0.86, green: 0.27, blue: 0.22)
+        }
+        if percent <= 30 {
+            return Color(red: 0.84, green: 0.46, blue: 0.18)
+        }
+        return .primary
+    }
+
+    private var batteryPercentFootnote: String {
+        let battery = monitor.snapshot.battery
+        if monitor.snapshot.isLoading {
+            return "正在读取电池"
+        }
+        if battery.failed {
+            return "没有读到电池"
+        }
+        if !battery.present {
+            return "这台电脑没有电池"
+        }
+        var parts: [String] = []
+        if let minutes = battery.relevantMinutes {
+            switch battery.mode {
+            case .charging:
+                parts.append("约 \(BatteryReport.formatMinutes(minutes)) 充满")
+            case .discharging:
+                parts.append("约 \(BatteryReport.formatMinutes(minutes)) 可用")
+            default:
+                break
+            }
+        }
+        if let cycles = battery.cycleCount {
+            parts.append("循环 \(cycles)")
+        }
+        return parts.isEmpty ? "电池电量" : parts.joined(separator: " · ")
+    }
+
+    private var batteryModeValue: String {
+        if monitor.snapshot.isLoading {
+            return "…"
+        }
+        if monitor.snapshot.battery.failed {
+            return "—"
+        }
+        return monitor.snapshot.battery.mode.shortLabel
+    }
+
+    private var batterySymbol: String {
+        let battery = monitor.snapshot.battery
+        if battery.mode == .charging || battery.mode == .full || battery.mode == .acPower {
+            return "battery.100.bolt"
+        }
+        guard let percent = battery.percent else {
+            return "battery.100"
+        }
+        if percent <= 15 {
+            return "battery.25"
+        }
+        if percent <= 40 {
+            return "battery.50"
+        }
+        if percent <= 70 {
+            return "battery.75"
+        }
+        return "battery.100"
+    }
+
+    private var batteryModeSymbol: String {
+        switch monitor.snapshot.battery.mode {
+        case .charging:
+            return "bolt.fill"
+        case .discharging:
+            return "battery.100"
+        case .full:
+            return "checkmark.circle"
+        case .acPower:
+            return "powerplug"
+        case .unavailable:
+            return "battery.slash"
+        case .unknown:
+            return "questionmark.circle"
+        }
+    }
+
+    private var batteryModeColor: Color {
+        switch monitor.snapshot.battery.mode {
+        case .charging, .full:
+            return Color(red: 0.20, green: 0.62, blue: 0.36)
+        case .discharging:
+            guard let percent = monitor.snapshot.battery.percent, percent <= 20 else {
+                return .primary
+            }
+            return Color(red: 0.86, green: 0.27, blue: 0.22)
+        default:
+            return .primary
+        }
+    }
+
+    private var batteryModeFootnote: String {
+        let battery = monitor.snapshot.battery
+        if monitor.snapshot.isLoading {
+            return "正在识别充放电"
+        }
+        if battery.failed {
+            return "没有读到电源状态"
+        }
+        var parts: [String] = [battery.mode.detail]
+        if let watts = battery.watts, watts > 0.5 {
+            parts.append(String(format: "%.0f W", watts))
+        }
+        if battery.onAC && battery.mode == .discharging {
+            parts.append("接着电源")
+        }
+        return parts.joined(separator: " · ")
     }
 
     private var temperatureValue: String {

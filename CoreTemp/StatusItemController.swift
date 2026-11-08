@@ -14,7 +14,7 @@ final class StatusItemController: NSObject, NSPopoverDelegate {
 
     override init() {
         // Create the status item immediately so the bar shows even if later setup fails.
-        let item = NSStatusBar.system.statusItem(withLength: 232)
+        let item = NSStatusBar.system.statusItem(withLength: 270)
         self.statusItem = item
         self.monitor = SystemMonitor()
         super.init()
@@ -120,7 +120,7 @@ final class StatusItemController: NSObject, NSPopoverDelegate {
 enum MenuText {
     static func title(for snapshot: Snapshot) -> String {
         // Fixed-width fields keep the status item from shifting as values change.
-        "\(temperature(snapshot)) \(usage(snapshot)) \(network(snapshot))    \(gpu(snapshot))"
+        "\(temperature(snapshot)) \(usage(snapshot)) \(network(snapshot))    \(gpu(snapshot)) \(battery(snapshot))"
     }
 
     static func accessibility(for snapshot: Snapshot) -> String {
@@ -140,7 +140,7 @@ enum MenuText {
         } else {
             cpu = "占用采样中"
         }
-        return "芯温，\(temp)，\(cpu)，\(networkAccessibility(snapshot))，\(gpuAccessibility(snapshot))"
+        return "芯温，\(temp)，\(cpu)，\(networkAccessibility(snapshot))，\(gpuAccessibility(snapshot))，\(batteryAccessibility(snapshot))"
     }
 
     private static func temperature(_ snapshot: Snapshot) -> String {
@@ -199,5 +199,45 @@ enum MenuText {
             return "显卡识别中"
         }
         return snapshot.gpu.detail
+    }
+
+    private static func battery(_ snapshot: Snapshot) -> String {
+        // Fixed width: " 65%充" / "100%放" / " …%…" / " --%--"
+        if snapshot.isLoading || (snapshot.battery.percent == nil && !snapshot.battery.failed && snapshot.battery.mode == .unknown) {
+            return " …%…"
+        }
+        if snapshot.battery.failed || !snapshot.battery.present {
+            return " --%--"
+        }
+        guard let percent = snapshot.battery.percent else {
+            return " …%…"
+        }
+        let mark: String
+        switch snapshot.battery.mode {
+        case .charging: mark = "充"
+        case .discharging: mark = "放"
+        case .full: mark = "满"
+        case .acPower: mark = "电"
+        case .unavailable: mark = "—"
+        case .unknown: mark = "…"
+        }
+        return String(format: "%3.0f%%\(mark)", percent)
+    }
+
+    private static func batteryAccessibility(_ snapshot: Snapshot) -> String {
+        let battery = snapshot.battery
+        if snapshot.isLoading {
+            return "电池读取中"
+        }
+        if battery.failed {
+            return "没有电池信息"
+        }
+        if !battery.present {
+            return "没有电池"
+        }
+        if let percent = battery.percent {
+            return String(format: "电池 %.0f%%，%@", percent, battery.mode.detail)
+        }
+        return battery.mode.detail
     }
 }
