@@ -10,6 +10,7 @@ struct Snapshot: Equatable, Sendable {
     var memory: MemoryReport
     var gpu: GPUReport
     var disk: DiskReport
+    var battery: BatteryReport
 
     static let loading = Snapshot(
         isLoading: true,
@@ -18,7 +19,8 @@ struct Snapshot: Equatable, Sendable {
         network: .waiting,
         memory: .waiting,
         gpu: .waiting,
-        disk: .waiting
+        disk: .waiting,
+        battery: .waiting
     )
 }
 
@@ -113,7 +115,7 @@ final class SystemMonitor: ObservableObject {
     }
 
     private func apply(_ sample: Sample) {
-        let next = Snapshot(isLoading: false, temperature: sample.temperature, cpu: sample.cpu, network: sample.network, memory: sample.memory, gpu: sample.gpu, disk: sample.disk)
+        let next = Snapshot(isLoading: false, temperature: sample.temperature, cpu: sample.cpu, network: sample.network, memory: sample.memory, gpu: sample.gpu, disk: sample.disk, battery: sample.battery)
         guard next != snapshot else {
             return
         }
@@ -191,6 +193,17 @@ final class SystemMonitor: ObservableObject {
                 freeBytes: 420_000_000_000,
                 volumeName: "Macintosh HD",
                 failed: false
+            ),
+            battery: BatteryReport(
+                percent: 65,
+                mode: .charging,
+                onAC: true,
+                timeToEmptyMinutes: nil,
+                timeToFullMinutes: 92,
+                cycleCount: 150,
+                watts: 48,
+                present: true,
+                failed: false
             )
         )
         return monitor
@@ -205,6 +218,7 @@ private struct Sample: Sendable {
     var memory: MemoryReport
     var gpu: GPUReport
     var disk: DiskReport
+    var battery: BatteryReport
 }
 
 private final class SensorSampler: @unchecked Sendable {
@@ -214,6 +228,7 @@ private final class SensorSampler: @unchecked Sendable {
     private let memory = MemoryReader()
     private let gpu = GPUActivityReader()
     private let disk = DiskSpaceReader()
+    private let battery = BatteryReader()
 
     func reset() {
         queue.async {
@@ -231,7 +246,8 @@ private final class SensorSampler: @unchecked Sendable {
                 network: self.network.sample(),
                 memory: self.memory.sample(),
                 gpu: self.gpu.sample(),
-                disk: self.disk.sample()
+                disk: self.disk.sample(),
+                battery: self.battery.sample()
             )
             completion(sample)
         }

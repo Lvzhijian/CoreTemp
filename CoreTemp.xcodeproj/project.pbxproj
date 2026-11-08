@@ -16,6 +16,7 @@
 		C0E700000000000000000051 /* MemoryReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E700000000000000000031 /* MemoryReader.swift */; };
 		C0E700000000000000000052 /* GPUActivityReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E700000000000000000032 /* GPUActivityReader.swift */; };
 		C0E700000000000000000053 /* DiskSpaceReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E700000000000000000033 /* DiskSpaceReader.swift */; };
+		C0E700000000000000000054 /* BatteryReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E700000000000000000034 /* BatteryReader.swift */; };
 		C0E700000000000000000045 /* TemperatureService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E700000000000000000025 /* TemperatureService.swift */; };
 		C0E700000000000000000046 /* PopoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E700000000000000000026 /* PopoverView.swift */; };
 		C0E700000000000000000047 /* SensorBridge.c in Sources */ = {isa = PBXBuildFile; fileRef = C0E700000000000000000027 /* SensorBridge.c */; };
@@ -37,6 +38,7 @@
 		C0E700000000000000000031 /* MemoryReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryReader.swift; sourceTree = "<group>"; };
 		C0E700000000000000000032 /* GPUActivityReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPUActivityReader.swift; sourceTree = "<group>"; };
 		C0E700000000000000000033 /* DiskSpaceReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiskSpaceReader.swift; sourceTree = "<group>"; };
+		C0E700000000000000000034 /* BatteryReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatteryReader.swift; sourceTree = "<group>"; };
 		C0E700000000000000000025 /* TemperatureService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemperatureService.swift; sourceTree = "<group>"; };
 		C0E700000000000000000026 /* PopoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverView.swift; sourceTree = "<group>"; };
 		C0E700000000000000000027 /* SensorBridge.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = SensorBridge.c; sourceTree = "<group>"; };
@@ -82,6 +84,7 @@
 				C0E700000000000000000031 /* MemoryReader.swift */,
 				C0E700000000000000000032 /* GPUActivityReader.swift */,
 				C0E700000000000000000033 /* DiskSpaceReader.swift */,
+				C0E700000000000000000034 /* BatteryReader.swift */,
 				C0E700000000000000000025 /* TemperatureService.swift */,
 				C0E700000000000000000026 /* PopoverView.swift */,
 				C0E700000000000000000027 /* SensorBridge.c */,
@@ -192,6 +195,7 @@
 				C0E700000000000000000051 /* MemoryReader.swift in Sources */,
 				C0E700000000000000000052 /* GPUActivityReader.swift in Sources */,
 				C0E700000000000000000053 /* DiskSpaceReader.swift in Sources */,
+				C0E700000000000000000054 /* BatteryReader.swift in Sources */,
 				C0E700000000000000000045 /* TemperatureService.swift in Sources */,
 				C0E700000000000000000046 /* PopoverView.swift in Sources */,
 				C0E700000000000000000047 /* SensorBridge.c in Sources */,
