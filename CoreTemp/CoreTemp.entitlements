@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<!--
+	  不要加入 App Sandbox。
+	  沙盒会拦住 AppleSMC，也可能让 HID 温度读数为空。
+	  这个菜单栏应用不需要特殊 entitlement，也不需要 root。
+	-->
+</dict>
+</plist>

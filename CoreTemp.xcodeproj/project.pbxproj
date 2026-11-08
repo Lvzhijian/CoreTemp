@@ -1,0 +1,390 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C0E700000000000000000041 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E700000000000000000021 /* AppDelegate.swift */; };
+		B2C3D4E5F60718293A4B5C6D /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F60718293A4B5C /* main.swift */; };
+		C0E700000000000000000042 /* StatusItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E700000000000000000022 /* StatusItemController.swift */; };
+		C0E700000000000000000043 /* SystemMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E700000000000000000023 /* SystemMonitor.swift */; };
+		C0E700000000000000000044 /* CPUUsageReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E700000000000000000024 /* CPUUsageReader.swift */; };
+		C0E700000000000000000050 /* NetworkSpeedReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E700000000000000000030 /* NetworkSpeedReader.swift */; };
+		C0E700000000000000000051 /* MemoryReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E700000000000000000031 /* MemoryReader.swift */; };
+		C0E700000000000000000052 /* GPUActivityReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E700000000000000000032 /* GPUActivityReader.swift */; };
+		C0E700000000000000000053 /* DiskSpaceReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E700000000000000000033 /* DiskSpaceReader.swift */; };
+		C0E700000000000000000045 /* TemperatureService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E700000000000000000025 /* TemperatureService.swift */; };
+		C0E700000000000000000046 /* PopoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E700000000000000000026 /* PopoverView.swift */; };
+		C0E700000000000000000047 /* SensorBridge.c in Sources */ = {isa = PBXBuildFile; fileRef = C0E700000000000000000027 /* SensorBridge.c */; };
+		C0E70000000000000000004D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0E70000000000000000002D /* Assets.xcassets */; };
+		C0E70000000000000000004E /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0E700000000000000000010 /* IOKit.framework */; };
+		C0E70000000000000000004F /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0E700000000000000000012 /* CoreFoundation.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		C0E70000000000000000000F /* CoreTemp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreTemp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C0E700000000000000000010 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
+		C0E700000000000000000012 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
+		C0E700000000000000000021 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		A1B2C3D4E5F60718293A4B5C /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		C0E700000000000000000022 /* StatusItemController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusItemController.swift; sourceTree = "<group>"; };
+		C0E700000000000000000023 /* SystemMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemMonitor.swift; sourceTree = "<group>"; };
+		C0E700000000000000000024 /* CPUUsageReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPUUsageReader.swift; sourceTree = "<group>"; };
+		C0E700000000000000000030 /* NetworkSpeedReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkSpeedReader.swift; sourceTree = "<group>"; };
+		C0E700000000000000000031 /* MemoryReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryReader.swift; sourceTree = "<group>"; };
+		C0E700000000000000000032 /* GPUActivityReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPUActivityReader.swift; sourceTree = "<group>"; };
+		C0E700000000000000000033 /* DiskSpaceReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiskSpaceReader.swift; sourceTree = "<group>"; };
+		C0E700000000000000000025 /* TemperatureService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemperatureService.swift; sourceTree = "<group>"; };
+		C0E700000000000000000026 /* PopoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverView.swift; sourceTree = "<group>"; };
+		C0E700000000000000000027 /* SensorBridge.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = SensorBridge.c; sourceTree = "<group>"; };
+		C0E700000000000000000028 /* SensorBridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SensorBridge.h; sourceTree = "<group>"; };
+		C0E700000000000000000029 /* SMCProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SMCProtocol.h; sourceTree = "<group>"; };
+		C0E70000000000000000002A /* CoreTemp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CoreTemp-Bridging-Header.h"; sourceTree = "<group>"; };
+		C0E70000000000000000002B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C0E70000000000000000002C /* CoreTemp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CoreTemp.entitlements; sourceTree = "<group>"; };
+		C0E70000000000000000002D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C0E700000000000000000004 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C0E70000000000000000004E /* IOKit.framework in Frameworks */,
+				C0E70000000000000000004F /* CoreFoundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C0E70000000000000000000C = {
+			isa = PBXGroup;
+			children = (
+				C0E70000000000000000000D /* CoreTemp */,
+				C0E700000000000000000011 /* Frameworks */,
+				C0E70000000000000000000E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C0E70000000000000000000D /* CoreTemp */ = {
+			isa = PBXGroup;
+			children = (
+				C0E700000000000000000021 /* AppDelegate.swift */,
+				A1B2C3D4E5F60718293A4B5C /* main.swift */,
+				C0E700000000000000000022 /* StatusItemController.swift */,
+				C0E700000000000000000023 /* SystemMonitor.swift */,
+				C0E700000000000000000024 /* CPUUsageReader.swift */,
+				C0E700000000000000000030 /* NetworkSpeedReader.swift */,
+				C0E700000000000000000031 /* MemoryReader.swift */,
+				C0E700000000000000000032 /* GPUActivityReader.swift */,
+				C0E700000000000000000033 /* DiskSpaceReader.swift */,
+				C0E700000000000000000025 /* TemperatureService.swift */,
+				C0E700000000000000000026 /* PopoverView.swift */,
+				C0E700000000000000000027 /* SensorBridge.c */,
+				C0E700000000000000000028 /* SensorBridge.h */,
+				C0E700000000000000000029 /* SMCProtocol.h */,
+				C0E70000000000000000002A /* CoreTemp-Bridging-Header.h */,
+				C0E70000000000000000002B /* Info.plist */,
+				C0E70000000000000000002C /* CoreTemp.entitlements */,
+				C0E70000000000000000002D /* Assets.xcassets */,
+			);
+			path = CoreTemp;
+			sourceTree = "<group>";
+		};
+		C0E70000000000000000000E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C0E70000000000000000000F /* CoreTemp.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C0E700000000000000000011 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C0E700000000000000000012 /* CoreFoundation.framework */,
+				C0E700000000000000000010 /* IOKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C0E700000000000000000002 /* CoreTemp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C0E700000000000000000007 /* Build configuration list for PBXNativeTarget "CoreTemp" */;
+			buildPhases = (
+				C0E700000000000000000003 /* Sources */,
+				C0E700000000000000000004 /* Frameworks */,
+				C0E700000000000000000005 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CoreTemp;
+			productName = CoreTemp;
+			productReference = C0E70000000000000000000F /* CoreTemp.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C0E700000000000000000001 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+				ORGANIZATIONNAME = CoreTemp;
+				TargetAttributes = {
+					C0E700000000000000000002 = {
+						CreatedOnToolsVersion = 15.0;
+					};
+				};
+			};
+			buildConfigurationList = C0E700000000000000000006 /* Build configuration list for PBXProject "CoreTemp" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = "zh-Hans";
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+				"zh-Hans",
+			);
+			mainGroup = C0E70000000000000000000C;
+			productRefGroup = C0E70000000000000000000E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C0E700000000000000000002 /* CoreTemp */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C0E700000000000000000005 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C0E70000000000000000004D /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C0E700000000000000000003 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C0E700000000000000000041 /* AppDelegate.swift in Sources */,
+				B2C3D4E5F60718293A4B5C6D /* main.swift in Sources */,
+				C0E700000000000000000042 /* StatusItemController.swift in Sources */,
+				C0E700000000000000000043 /* SystemMonitor.swift in Sources */,
+				C0E700000000000000000044 /* CPUUsageReader.swift in Sources */,
+				C0E700000000000000000050 /* NetworkSpeedReader.swift in Sources */,
+				C0E700000000000000000051 /* MemoryReader.swift in Sources */,
+				C0E700000000000000000052 /* GPUActivityReader.swift in Sources */,
+				C0E700000000000000000053 /* DiskSpaceReader.swift in Sources */,
+				C0E700000000000000000045 /* TemperatureService.swift in Sources */,
+				C0E700000000000000000046 /* PopoverView.swift in Sources */,
+				C0E700000000000000000047 /* SensorBridge.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		C0E700000000000000000008 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		C0E700000000000000000009 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+		C0E70000000000000000000A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				AD_HOC_CODE_SIGNING_ALLOWED = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = CoreTemp/CoreTemp.entitlements;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_INJECT_BASE_ENTITLEMENTS = YES;
+				CODE_SIGN_STYLE = Manual;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/CoreTemp";
+				INFOPLIST_FILE = CoreTemp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = app.coretemp.CoreTemp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SUPPORTED_PLATFORMS = macosx;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "CoreTemp/CoreTemp-Bridging-Header.h";
+				SWIFT_STRICT_CONCURRENCY = minimal;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		C0E70000000000000000000B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				AD_HOC_CODE_SIGNING_ALLOWED = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = CoreTemp/CoreTemp.entitlements;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_INJECT_BASE_ENTITLEMENTS = NO;
+				CODE_SIGN_STYLE = Manual;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = NO;
+				GENERATE_INFOPLIST_FILE = NO;
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/CoreTemp";
+				INFOPLIST_FILE = CoreTemp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = app.coretemp.CoreTemp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SUPPORTED_PLATFORMS = macosx;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "CoreTemp/CoreTemp-Bridging-Header.h";
+				SWIFT_STRICT_CONCURRENCY = minimal;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C0E700000000000000000006 /* Build configuration list for PBXProject "CoreTemp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C0E700000000000000000008 /* Debug */,
+				C0E700000000000000000009 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C0E700000000000000000007 /* Build configuration list for PBXNativeTarget "CoreTemp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C0E70000000000000000000A /* Debug */,
+				C0E70000000000000000000B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C0E700000000000000000001 /* Project object */;
+}
